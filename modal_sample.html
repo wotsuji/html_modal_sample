@@ -1,0 +1,122 @@
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type='text/javascript'>
+    //---------------------------
+    // モーダルオープン
+    //  １．id="openModal" クリックイベント
+    //  ２．id="modalArea" フェードイン
+    // モーダルクローズ
+    //  １．#closeModal or #modalBg クリックイベント
+    //  ２．id="modalArea" フェードアウト
+    $(function () {
+      $('#openModal').click(function () {
+        $('#modalArea').fadeIn();
+      });
+      $('#closeModal , #modalBg').click(function () {
+        $('#modalArea').fadeOut();
+      });
+    });
+
+  </script>
+  <style>
+    /* モーダルCSS */
+    .modalArea {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      /*ここの数値は調整 */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modalBg {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(30, 30, 30, 0.9);
+    }
+
+    .modalWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      max-width: 500px;
+      padding: 10px 30px;
+      background-color: #fff;
+
+/* モーダルウィンドウにスクロールバー指定 */
+      /*お好みの高さで固定*/
+      height: 50%;
+      /*状況に応じて縦スクロールバーが出現*/
+      overflow: auto;
+
+    }
+
+    .closeModal {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+
+
+    /* 以下ボタンスタイル */
+    button {
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #282828;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    #openModal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>モーダルサンプル</h1>
+  <h2>テキストをモーダルに入れるパターン</h2>
+
+  <button id="openModal">モーダルを開く</button>
+
+  <!-- モーダルエリアここから -->
+  <section id="modalArea" class="modalArea">
+    <div id="modalBg" class="modalBg"></div>
+    <div class="modalWrapper">
+      <div class="modalContents">
+        <h1>モーダルタイトル</h1>
+        <p>モーダル本文</p>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+        <div>あいうえお</div>
+      </div>
+      <div id="closeModal" class="closeModal">
+        ×
+      </div>
+    </div>
+  </section>
+  <!-- モーダルエリアここまで -->
+
+
+</body>
+
+</html>
